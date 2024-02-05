@@ -25,7 +25,7 @@ apartments = {'Unit 1': {'Price': 950,
                          'Bathrooms' : 3}
               }
 
-accounts = {'James': 'deeznuts',
+accounts = {'James': 'James1',
             'Jodie' : 'jodie101'}
 
 accounts_favs = {'James': ['Unit 1', 'Unit 3', 'Unit 6'],
