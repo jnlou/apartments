@@ -25,25 +25,40 @@ apartments = {'Unit 1': {'Price': 950,
                          'Bathrooms' : 3}
               }
 
-accounts = {'James': 'James1',
+
+accounts = {'James': 'james1',
             'Jodie' : 'jodie101'}
 
 accounts_favs = {'James': ['Unit 1', 'Unit 3', 'Unit 6'],
                  'Jodie' : ['Unit 4']}
 
 
+saved_data = {'James' : {},
+              'Jodie' : {}}
 def main():
+    
     while True:
-        print(accounts)
         user = apartment_ops.sign_in(accounts, accounts_favs)
-        user_preference = apartment_ops.filtering(apartments, user)
-        cart = apartment_ops.shopping(apartments, user, user_preference, accounts_favs)
+        # Meaning, if the user doesn't exist or if the user doesn't have any data to load
+        if user not in accounts or not saved_data[user]:
+            user_preference = apartment_ops.filtering(apartments, user)
+            # Creates an empty shopping cart
+            cart = []
+            # Updates the shopping cart
+            cart = apartment_ops.shopping(cart, apartments, user, user_preference, accounts_favs, saved_data)
+        
+
+        else:
+            user_preference, cart = apartment_ops.load_data(user, saved_data)
+            # Updates the shopping cart
+            cart = apartment_ops.shopping(cart, apartments, user, user_preference, accounts_favs, saved_data)
+
         if cart is not None:
             break
-    print(f'Your request has been sent to {len(cart) } apartment complexes')
+    print(f'Your request has been sent to {len(cart)} apartment complexes')
     print('Thanks for shopping!')
 
-
-main()
+if __name__ == "__main__":
+    main()
 
 
