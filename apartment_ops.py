@@ -322,7 +322,7 @@ def shopping(cart, apartments, user, user_preference, accounts_favs, saved_data)
                 print("Please select one of the displayed options")
 
 
-
+# This functions sends the all of the user's information as a dictionary, into a dictionary named "saved_data"
 def save_data(user, user_preference, accounts_favs, selected, saved_data):
     user_data = {f"{user}'s Information" : {"Apartment Preferences" : user_preference,
                                             "Favorites" : accounts_favs[user],
