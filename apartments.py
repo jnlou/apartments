@@ -1,4 +1,5 @@
 import apartment_ops
+# test sample
 apartments = {'Unit 1': {'Price': 950,
                          'Sq Ft': 900,
                          'Bedrooms': 1,
