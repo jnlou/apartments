@@ -240,7 +240,7 @@ def bathroom_processing(select, selected, limits, apartments):
             print(f"Value error occured: {bath_err}, try again")
 
 
-
+# This function is in charge of filtering every apartment according to limits the user sets in each category
 def filtering(apartments, user):
     print(f'Hello {user}!')
     filter_by = ['Price', 'Sq Ft', 'Bedrooms', 'Bathrooms']
@@ -330,6 +330,7 @@ def save_data(user, user_preference, accounts_favs, selected, saved_data):
                 }
     saved_data[user] = user_data
     
-
+# This function loads an already saved portion of the dictionary that contains the user's informational data
 def load_data(user, saved_data):
+    # returns the user's apartment preferences, and their shopping cart
     return saved_data[user][f"{user}'s Information"]["Apartment Preferences"], saved_data[user][f"{user}'s Information"]["Shopping Cart"]
